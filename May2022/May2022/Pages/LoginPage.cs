@@ -36,7 +36,7 @@ namespace May2022.Pages
             }
             catch(Exception ex)
             {
-                Assert.Fail("TurnUp portal page did not launch.");
+                Assert.Fail("TurnUp portal page did not launch.", ex.Message);
             }
 
         }
