@@ -9,49 +9,44 @@ using System.Threading;
 namespace May2022
 {
     [TestFixture]
+    [Parallelizable]
     public class TM_Tests : CommonDriver
     {
-        [SetUp]
-        public void LoginActions()
-        {
-            // open chrome browser
-            driver = new ChromeDriver();
+        // page object initialization
 
-            // Login page object initialization and definition
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginSteps(driver);
+        TMPage tmPageObj = new TMPage();
+        HomePage homePageObj = new HomePage();
 
-            // Home page object initialization and definition
-            HomePage homePageObj = new HomePage();
-            homePageObj.GoToTMPage(driver);
-        }
-        [Test]
+        [Test, Order(1), Description("Create time and material record with valid data")]
         public void CreateTM()
         {
+            
+            // Home page object initialization and definition
+            homePageObj.GoToTMPage(driver);
+
             // TM page object initialization and definition
-            TMPage tmPageObj = new TMPage();
             tmPageObj.CreateTM(driver);
         }
-        [Test]
+        [Test, Order(2), Description("Edit time and material record created in test number 1")]
         public void EditTM()
         {
+            // Home page object initialization and definition
+            homePageObj.GoToTMPage(driver);
+
             // Edit TM
-            TMPage tmPageObj = new TMPage();
             tmPageObj.EditTM(driver);
         }
-        [Test]
+        [Test, Order(3), Description("Delete time and material record edited in test number 2")]
         public void DeleteTM()
         {
+            // Home page object initialization and definition
+            homePageObj.GoToTMPage(driver);
+
             // Delete TM
-            TMPage tmPageObj = new TMPage();
             tmPageObj.DeleteTM(driver);
 
         }
-        [TearDown]
-        public void CloseTestRun()
-        {
 
-        }
     }
 
 }
