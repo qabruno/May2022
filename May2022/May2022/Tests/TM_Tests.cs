@@ -34,7 +34,7 @@ namespace May2022
             homePageObj.GoToTMPage(driver);
 
             // Edit TM
-            tmPageObj.EditTM(driver);
+            tmPageObj.EditTM(driver, "dummy", "dummy1", "dummy2");
         }
         [Test, Order(3), Description("Delete time and material record edited in test number 2")]
         public void DeleteTM()

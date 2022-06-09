@@ -75,12 +75,14 @@ namespace May2022.Specflow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("create time and material record with valid details")]
-        public void CreateTimeAndMaterialRecordWithValidDetails()
+        [NUnit.Framework.DescriptionAttribute("1 create time and material record with valid details")]
+        [NUnit.Framework.CategoryAttribute("Create")]
+        public void _1CreateTimeAndMaterialRecordWithValidDetails()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Create"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("create time and material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 create time and material record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -102,6 +104,52 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 12
  testRunner.Then("the record should be created successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("2 edit existing time and material record")]
+        [NUnit.Framework.CategoryAttribute("Edit")]
+        [NUnit.Framework.TestCaseAttribute("Keyboard", "May2022", "$16.00", null)]
+        [NUnit.Framework.TestCaseAttribute("Pen", "Phone", "$1500.00", null)]
+        [NUnit.Framework.TestCaseAttribute("EditedRecord", "Portal", "$49.00", null)]
+        public void _2EditExistingTimeAndMaterialRecord(string description, string code, string price, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Edit"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Code", code);
+            argumentsOfScenario.Add("Price", price);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 edit existing time and material record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 15
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 16
+ testRunner.Given("I logged into turnup portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 17
+ testRunner.When("I navigate to time and material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
+ testRunner.When(string.Format("I update \'{0}\', \'{1}\', \'{2}\' on an existing time and material record", description, code, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 19
+ testRunner.Then(string.Format("the record should have the updated \'{0}\', \'{1}\', \'{2}\'", description, code, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
